@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.SHIVAM.SHIVAM"
+        version   = "1.0.1">
+  <name>test</name>
+
+  <description>
+    SHIVAM
+  </description>
+
+  <author href="http://www.shivam.com/" email="support@shivam.com">
+   SHIVAM ITCS Team
+  </author>
+  <plugin name="cordova-plugin-native-keyboard" source="npm"/>
+
+  <access origin="*"/>
+
+</widget>
