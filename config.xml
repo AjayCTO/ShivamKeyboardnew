@@ -3,7 +3,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.SHIVAM.SHIVAM"
         version   = "1.0.1">
-  <name>test</name>
+  <name>Shivam Keyboard</name>
 
   <description>
     SHIVAM
@@ -13,6 +13,10 @@
    SHIVAM ITCS Team
   </author>
   <plugin name="cordova-plugin-native-keyboard" source="npm"/>
+
+  <plugin name="cordova-plugin-actionsheet" source="npm"/>
+
+  
 
   <access origin="*"/>
 

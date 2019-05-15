@@ -170,8 +170,7 @@
                 <div>10/20/16, 4:23 PM</div>
             </div>
 
-            <p>DASH</p>
-            <input type="text" name="name" value="" />    
+         
             <div class="message left">
                 <span>Right on! Let's party 🎉 🎉</span>
                 <div>10/20/16, 4:23 PM</div>
@@ -306,9 +305,51 @@
             if (chatShowing) {
                 document.addEventListener('deviceready', showMessenger, false);
             }
-            //setTimeout(function() {
-            //    NativeKeyboard.hideMessengerKeyboard();
-            //}, 5000);
+
+
+            //Action sheet
+            var callback = function (buttonIndex) {
+                setTimeout(function () {
+                    // like other Cordova plugins (prompt, confirm) the buttonIndex is 1-based (first button is index 1)
+                    alert('button index clicked: ' + buttonIndex);
+                });
+            };
+
+            function testShareSheet() {
+                var options = {
+                    androidTheme: window.plugins.actionsheet.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT, // default is THEME_TRADITIONAL
+                    title: 'What do you want with this image?',
+                    subtitle: 'Choose wisely, my friend', // supported on iOS only
+                    buttonLabels: ['Share via Facebook', 'Share via Twitter'],
+                    androidEnableCancelButton: true, // default false
+                    winphoneEnableCancelButton: true, // default false
+                    addCancelButtonWithLabel: 'Cancel',
+                    addDestructiveButtonWithLabel: 'Delete it',
+                    position: [20, 40], // for iPad pass in the [x, y] position of the popover
+                    destructiveButtonLast: true // you can choose where the destructive button is shown
+                };
+                // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+                // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+                window.plugins.actionsheet.show(options, callback);
+            };
+
+            function testDeleteSheet() {
+                var options = {
+                    'addCancelButtonWithLabel': 'Cancel',
+                    'addDestructiveButtonWithLabel': 'Delete note'
+                };
+                window.plugins.actionsheet.show(options, callback);
+            };
+
+            function testLogoutSheet() {
+                var options = {
+                    'buttonLabels': ['Log out'],
+                    'androidEnableCancelButton': true, // default false
+                    'winphoneEnableCancelButton': true, // default false
+                    'addCancelButtonWithLabel': 'Cancel'
+                };
+                window.plugins.actionsheet.show(options, callback);
+            };
         </script>
         <script>
 
